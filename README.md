@@ -1,6 +1,8 @@
 BcMq
 ====
 
+[![Build Status](https://travis-ci.org/braincrafted/mq.png?branch=master)](https://travis-ci.org/braincrafted/mq)
+
 A asynchronous message queue implemented in PHP (mostly for fun and pleasure).
 
 By [Florian Eckerstorfer](http://florianeckerstorfer.com).
