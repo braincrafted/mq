@@ -9,6 +9,27 @@ namespace Bc\Mq;
 
 use Bc\Json\Json;
 
+/**
+ * Consumes messags from the message queue.
+ *
+ * Allows to handle different types of messages with different callbacks.
+ *
+ * Usage:
+ *
+ *     $consumer = new Bc\Mq\Consumer(array(
+ *         'default'   => function ($message) {
+ *             file_put_contents(__DIR__.'/default.log', $message."\n", FILE_APPEND);
+ *         }
+ *     ));
+ *     $consumer->consume($_SERVER['argv'][1]);
+ *
+ * See `examples/consumer.php` for a full example.
+ *
+ * @package   BcMq
+ * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright 2013 Florian Eckerstorfer
+ * @license   http://opensource.org/licenses/MIT The MIT License
+ */
 class Consumer
 {
     /** @var array */

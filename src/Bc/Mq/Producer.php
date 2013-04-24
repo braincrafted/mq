@@ -9,6 +9,28 @@ namespace Bc\Mq;
 
 use Bc\Json\Json;
 
+/**
+ * Produces messages and sends them to the queue.
+ *
+ * This class is absolutley not required to write messages to the queue,
+ * the following snippet would do the same thing:
+ *
+ *     $fp = stream_socket_client('tcp://localhost:4000');
+ *     fwrite($fp, json_encode(array('type'=>'default','message'=>'bazbazbaz')));
+ *     fclose($fp);
+ *
+ * However, Producer makes it a little bit easier:
+ *
+ *     $producer = new Bc\Mq\Producer('localhost', 4000);
+ *     $producer->produce('default', 'Hello World');
+ *
+ * See `examples/producer.php` for a full example.
+ *
+ * @package   BcMq
+ * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright 2013 Florian Eckerstorfer
+ * @license   http://opensource.org/licenses/MIT The MIT License
+ */
 class Producer
 {
     /** @var string */

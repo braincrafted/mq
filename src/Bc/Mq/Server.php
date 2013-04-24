@@ -15,6 +15,30 @@ use React\Socket\ServerInterface;
 
 use Bc\BackgroundProcess\Factory as BackgroundProcessFactory;
 
+/**
+ * Message Queue Server
+ *
+ * Uses ReactPHP to run a non-blocking server that accepts messages via a
+ * socket and executes them in a background process.
+ *
+ * Usage:
+ *
+ *     $loop = React\EventLoop\Factory::create();
+ *     $server = new Bc\Mq\Server(
+ *         new Bc\BackgroundProcess\Factory('Bc\BackgroundProcess\BackgroundProcess'),
+ *         $loop,
+ *         new React\Socket\Server($loop)
+ *     );
+ *
+ *     $server->run(sprintf('`which php` %s/consumer.php', __DIR__), 4000);
+ *
+ * See `examples/server.php` for a full example.
+ *
+ * @package   BcMq
+ * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright 2013 Florian Eckerstorfer
+ * @license   http://opensource.org/licenses/MIT The MIT License
+ */
 class Server
 {
     /** @var BackgroundProcessFactory */
@@ -26,6 +50,13 @@ class Server
     /** @var ServerInterface */
     private $socket;
 
+    /**
+     * Constructor.
+     *
+     * @param BackgroundProcessFactory $processFactory Factory to create background procceses
+     * @param LoopInterface            $loop           The loop
+     * @param ServerInterface          $socket         The socket
+     */
     public function __construct(BackgroundProcessFactory $processFactory, LoopInterface $loop, ServerInterface $socket)
     {
         $this->processFactory   = $processFactory;
@@ -33,6 +64,14 @@ class Server
         $this->socket           = $socket;
     }
 
+    /**
+     * Runs the message server on the given port.
+     *
+     * @param string  $consumer Command to execute when a message arrives
+     * @param integer $port     Port to run the server on
+     *
+     * @return void
+     */
     public function run($consumer, $port)
     {
         // @codeCoverageIgnoreStart
@@ -47,6 +86,15 @@ class Server
         $this->loop->run();
     }
 
+    /**
+     * Handles the given data.
+     *
+     * @param string              $data       Consumed data
+     * @param string              $consumer   Command to execute
+     * @param ConnectionInterface $connection The connection to the producer
+     *
+     * @return void
+     */
     public function handleData($data, $consumer, ConnectionInterface $connection)
     {
         $command = sprintf('%s "%s"', $consumer, addslashes($data));
