@@ -12,17 +12,17 @@ namespace Bc\Mq;
  *
  * @group unit
  */
-class ConsumerTest extends \PHPUnit_Framework_TestCase
+class CallbackConsumerTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Tests the <code>consume()</code> message.
      *
-     * @covers Bc\Mq\Consumer::__construct()
-     * @covers Bc\Mq\Consumer::consume()
+     * @covers Bc\Mq\CallbackConsumer::__construct()
+     * @covers Bc\Mq\CallbackConsumer::consume()
      */
     public function testConsume()
     {
-        $consumer = new Consumer(
+        $consumer = new CallbackConsumer(
             array(
                 'default'   => function($message) {
                     $this->assertEquals('foobar', $message);
@@ -36,11 +36,11 @@ class ConsumerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>consume()</code> message.
      *
-     * @covers Bc\Mq\Consumer::consume()
+     * @covers Bc\Mq\CallbackConsumer::consume()
      */
     public function testConsume_Escaped()
     {
-        $consumer = new Consumer(
+        $consumer = new CallbackConsumer(
             array(
                 'default'   => function($message) {
                     $this->assertEquals('foobar', $message);
@@ -54,13 +54,13 @@ class ConsumerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>consume()</code> message and the message misses the type.
      *
-     * @covers Bc\Mq\Consumer::consume()
+     * @covers Bc\Mq\CallbackConsumer::consume()
      *
      * @expectedException \InvalidArgumentException
      */
     public function testConsume_MissingType()
     {
-        $consumer = new Consumer();
+        $consumer = new CallbackConsumer();
 
         $consumer->consume('{\"message\":\"foobar\"}');
     }
@@ -68,13 +68,13 @@ class ConsumerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>consume()</code> message and the message misses the message.
      *
-     * @covers Bc\Mq\Consumer::consume()
+     * @covers Bc\Mq\CallbackConsumer::consume()
      *
      * @expectedException \InvalidArgumentException
      */
     public function testConsume_MissingMessage()
     {
-        $consumer = new Consumer();
+        $consumer = new CallbackConsumer();
 
         $consumer->consume('{\"type\":\"default\"}');
     }

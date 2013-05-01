@@ -10,7 +10,7 @@ namespace Bc\Mq;
 use Bc\Json\Json;
 
 /**
- * Consumes messags from the message queue.
+ * Consumes messags from the message queue and calls a callback.
  *
  * Allows to handle different types of messages with different callbacks.
  *
@@ -30,7 +30,7 @@ use Bc\Json\Json;
  * @copyright 2013 Florian Eckerstorfer
  * @license   http://opensource.org/licenses/MIT The MIT License
  */
-class Consumer implements ConsumerInterface
+class CallbackConsumer implements ConsumerInterface
 {
     /** @var array */
     private $consumers;
