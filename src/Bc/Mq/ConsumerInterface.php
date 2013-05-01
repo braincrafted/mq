@@ -15,7 +15,6 @@ namespace Bc\Mq;
  * @copyright 2013 Florian Eckerstorfer
  * @license   http://opensource.org/licenses/MIT The MIT License
  */
-
 interface ConsumerInterface
 {
     /**
