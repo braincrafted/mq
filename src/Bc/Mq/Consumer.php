@@ -30,7 +30,7 @@ use Bc\Json\Json;
  * @copyright 2013 Florian Eckerstorfer
  * @license   http://opensource.org/licenses/MIT The MIT License
  */
-class Consumer
+class Consumer implements ConsumerInterface
 {
     /** @var array */
     private $consumers;
@@ -47,11 +47,7 @@ class Consumer
     }
 
     /**
-     * Consumes the given message.
-     *
-     * @param string $data The message must be encoded as JSON and quotes can be escaped.
-     *
-     * @return void
+     * {@inheritDoc}
      */
     public function consume($data)
     {
