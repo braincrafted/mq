@@ -29,9 +29,9 @@ Messages can be produces using the included Producer or by writing a JSON object
 
 There are examples for server, consumer and producer in the `examples` directory.
 
-    - [`server.php`](https://github.com/braincrafted/mq/blob/master/examples/server.php)
-    - [`consumer.php`](https://github.com/braincrafted/mq/blob/master/examples/consumer.php)
-    - [`producer.php`](https://github.com/braincrafted/mq/blob/master/examples/producer.php)
+- [`server.php`](https://github.com/braincrafted/mq/blob/master/examples/server.php)
+- [`consumer.php`](https://github.com/braincrafted/mq/blob/master/examples/consumer.php)
+- [`producer.php`](https://github.com/braincrafted/mq/blob/master/examples/producer.php)
 
 
 License
