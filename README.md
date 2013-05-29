@@ -25,7 +25,7 @@ Usage
 
 BcMq requires two distinct scripts, a server and a consumer. The server needs to run as long new messages should be accepted. Whenever a new message arrives the server invokes the consumer in the background and instantley closes the connection.
 
-Messages can be produces using the included Producer or by writing a JSON object to the configured port.
+Messages can be produced using the included producer or by writing a JSON object to the configured port.
 
 There are examples for server, consumer and producer in the `examples` directory.
 
