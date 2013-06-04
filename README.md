@@ -34,6 +34,17 @@ There are examples for server, consumer and producer in the `examples` directory
 - [`producer.php`](https://github.com/braincrafted/mq/blob/master/examples/producer.php)
 
 
+Changelog
+---------
+
+### Version 0.2 (2013-06-04)
+
+- Updated `symfony/dependency-injection` to version 2.3
+
+### Version 0.1
+
+- Initial release
+
 License
 -------
 
