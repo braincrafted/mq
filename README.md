@@ -37,6 +37,10 @@ There are examples for server, consumer and producer in the `examples` directory
 Changelog
 ---------
 
+### Version 0.3 (2013-07-05)
+
+- Server can send callback when handling incoming data
+
 ### Version 0.2 (2013-06-04)
 
 - Updated `symfony/dependency-injection` to version 2.3
