@@ -37,6 +37,10 @@ There are examples for server, consumer and producer in the `examples` directory
 Changelog
 ---------
 
+### Version 0.4 (2013-11-15)
+
+- Changed namespace to `Braincrafted`
+
 ### Version 0.3 (2013-07-05)
 
 - Server can send callback when handling incoming data
