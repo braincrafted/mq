@@ -72,12 +72,12 @@ class Server
      *
      * @return void
      */
-    public function run($consumer, $port)
+    public function run($consumer, $port, $callback = null)
     {
         // @codeCoverageIgnoreStart
-        $this->socket->on('connection', function (ConnectionInterface $conn) use ($consumer) {
-            $conn->on('data', function ($data) use ($conn, $consumer) {
-                $this->handleData(trim($data), $consumer, $conn);
+        $this->socket->on('connection', function (ConnectionInterface $conn) use ($consumer, $callback) {
+            $conn->on('data', function ($data) use ($conn, $consumer, $callback) {
+                $this->handleData(trim($data), $consumer, $conn, $callback);
             });
         });
         // @codeCoverageIgnoreEnd
@@ -95,9 +95,12 @@ class Server
      *
      * @return void
      */
-    public function handleData($data, $consumer, ConnectionInterface $connection)
+    public function handleData($data, $consumer, ConnectionInterface $connection, $callback = null)
     {
         $command = sprintf('%s "%s"', $consumer, addslashes($data));
+        if ($callback && is_callable($callback)) {
+            call_user_func($callback, $data);
+        }
         $this->processFactory->newProcess($command)->run();
 
         $connection->close();
