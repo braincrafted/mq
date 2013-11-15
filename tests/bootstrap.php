@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of BcMq.
+ * This file is part of BraincraftedMq.
  *
  * (c) 2013 Florian Eckerstorfer
  */

@@ -1,16 +1,16 @@
 <?php
 /**
- * This file is part of BcMq.
+ * This file is part of BraincraftedMq.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Mq;
+namespace Braincrafted\Mq;
 
 /**
  * Consumes messags from the message queue.
  *
- * @package   BcMq
+ * @package   BraincraftedMq
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2013 Florian Eckerstorfer
  * @license   http://opensource.org/licenses/MIT The MIT License

@@ -1,11 +1,11 @@
 <?php
 /**
- * This file is part of BcMq.
+ * This file is part of BraincraftedMq.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Mq;
+namespace Braincrafted\Mq;
 
 /**
  * ConsumerTest
@@ -17,8 +17,8 @@ class CallbackConsumerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>consume()</code> message.
      *
-     * @covers Bc\Mq\CallbackConsumer::__construct()
-     * @covers Bc\Mq\CallbackConsumer::consume()
+     * @covers Braincrafted\Mq\CallbackConsumer::__construct()
+     * @covers Braincrafted\Mq\CallbackConsumer::consume()
      */
     public function testConsume()
     {
@@ -36,7 +36,7 @@ class CallbackConsumerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>consume()</code> message.
      *
-     * @covers Bc\Mq\CallbackConsumer::consume()
+     * @covers Braincrafted\Mq\CallbackConsumer::consume()
      */
     public function testConsume_Escaped()
     {
@@ -54,7 +54,7 @@ class CallbackConsumerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>consume()</code> message and the message misses the type.
      *
-     * @covers Bc\Mq\CallbackConsumer::consume()
+     * @covers Braincrafted\Mq\CallbackConsumer::consume()
      *
      * @expectedException \InvalidArgumentException
      */
@@ -68,7 +68,7 @@ class CallbackConsumerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>consume()</code> message and the message misses the message.
      *
-     * @covers Bc\Mq\CallbackConsumer::consume()
+     * @covers Braincrafted\Mq\CallbackConsumer::consume()
      *
      * @expectedException \InvalidArgumentException
      */

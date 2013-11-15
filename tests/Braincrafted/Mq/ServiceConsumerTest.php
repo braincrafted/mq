@@ -1,6 +1,6 @@
 <?php
 
-namespace Bc\Mq;
+namespace Braincrafted\Mq;
 
 use \Mockery as m;
 
@@ -33,9 +33,9 @@ class ServiceConsumerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>consume()</code> message.
      *
-     * @covers Bc\Mq\ServiceConsumer::__construct()
-     * @covers Bc\Mq\ServiceConsumer::consume()
-     * @covers Bc\Mq\ServiceConsumer::setContainer()
+     * @covers Braincrafted\Mq\ServiceConsumer::__construct()
+     * @covers Braincrafted\Mq\ServiceConsumer::consume()
+     * @covers Braincrafted\Mq\ServiceConsumer::setContainer()
      */
     public function testConsume()
     {
@@ -48,7 +48,7 @@ class ServiceConsumerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>consume()</code> message.
      *
-     * @covers Bc\Mq\ServiceConsumer::consume()
+     * @covers Braincrafted\Mq\ServiceConsumer::consume()
      */
     public function testConsume_Escaped()
     {
@@ -61,7 +61,7 @@ class ServiceConsumerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>consume()</code> message and the message misses the type.
      *
-     * @covers Bc\Mq\ServiceConsumer::consume()
+     * @covers Braincrafted\Mq\ServiceConsumer::consume()
      *
      * @expectedException \InvalidArgumentException
      */
@@ -75,7 +75,7 @@ class ServiceConsumerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>consume()</code> message and the message misses the message.
      *
-     * @covers Bc\Mq\ServiceConsumer::consume()
+     * @covers Braincrafted\Mq\ServiceConsumer::consume()
      *
      * @expectedException \InvalidArgumentException
      */

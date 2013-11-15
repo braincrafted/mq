@@ -1,13 +1,13 @@
 <?php
 /**
- * This file is part of BcMq.
+ * This file is part of BraincraftedMq.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Mq;
+namespace Braincrafted\Mq;
 
-use Bc\Json\Json;
+use Braincrafted\Json\Json;
 
 /**
  * Produces messages and sends them to the queue.
@@ -21,12 +21,12 @@ use Bc\Json\Json;
  *
  * However, Producer makes it a little bit easier:
  *
- *     $producer = new Bc\Mq\Producer('localhost', 4000);
+ *     $producer = new Braincrafted\Mq\Producer('localhost', 4000);
  *     $producer->produce('default', 'Hello World');
  *
  * See `examples/producer.php` for a full example.
  *
- * @package   BcMq
+ * @package   BraincraftedMq
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2013 Florian Eckerstorfer
  * @license   http://opensource.org/licenses/MIT The MIT License

@@ -1,11 +1,11 @@
 <?php
 /**
- * This file is part of BcMq.
+ * This file is part of BraincraftedMq.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Mq;
+namespace Braincrafted\Mq;
 
 use React\EventLoop\Factory as EventLoopFactory;
 use React\EventLoop\LoopInterface;
@@ -13,7 +13,7 @@ use React\Socket\ConnectionInterface;
 use React\Socket\Server as SocketServer;
 use React\Socket\ServerInterface;
 
-use Bc\BackgroundProcess\Factory as BackgroundProcessFactory;
+use Braincrafted\BackgroundProcess\Factory as BackgroundProcessFactory;
 
 /**
  * Message Queue Server
@@ -24,8 +24,8 @@ use Bc\BackgroundProcess\Factory as BackgroundProcessFactory;
  * Usage:
  *
  *     $loop = React\EventLoop\Factory::create();
- *     $server = new Bc\Mq\Server(
- *         new Bc\BackgroundProcess\Factory('Bc\BackgroundProcess\BackgroundProcess'),
+ *     $server = new Braincrafted\Mq\Server(
+ *         new Braincrafted\BackgroundProcess\Factory('Braincrafted\BackgroundProcess\BackgroundProcess'),
  *         $loop,
  *         new React\Socket\Server($loop)
  *     );
@@ -34,7 +34,7 @@ use Bc\BackgroundProcess\Factory as BackgroundProcessFactory;
  *
  * See `examples/server.php` for a full example.
  *
- * @package   BcMq
+ * @package   BraincraftedMq
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2013 Florian Eckerstorfer
  * @license   http://opensource.org/licenses/MIT The MIT License

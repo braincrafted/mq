@@ -1,11 +1,11 @@
 <?php
 /**
- * This file is part of BcMq.
+ * This file is part of BraincraftedMq.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Mq;
+namespace Braincrafted\Mq;
 
 use \Mockery as m;
 
@@ -22,7 +22,7 @@ class ServerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->processFactory   = m::mock('Bc\BackgroundProcess\Factory');
+        $this->processFactory   = m::mock('Braincrafted\BackgroundProcess\Factory');
         $this->loop             = m::mock('React\EventLoop\LoopInterface');
         $this->socket           = m::mock('React\Socket\ServerInterface');
 
@@ -31,8 +31,8 @@ class ServerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>run()</code> method.
      *
-     * @covers Bc\Mq\Server::__construct()
-     * @covers Bc\Mq\Server::run()
+     * @covers Braincrafted\Mq\Server::__construct()
+     * @covers Braincrafted\Mq\Server::run()
      */
     public function testRun()
     {
@@ -57,11 +57,11 @@ class ServerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>handleData()</code> method.
      *
-     * @covers Bc\Mq\Server::handleData()
+     * @covers Braincrafted\Mq\Server::handleData()
      */
     public function testHandleData()
     {
-        $process = m::mock('Bc\BackgroundProcess\BackgroundProcess');
+        $process = m::mock('Braincrafted\BackgroundProcess\BackgroundProcess');
         $process
             ->shouldReceive('run')
             ->withNoArgs()

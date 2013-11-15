@@ -16,9 +16,9 @@ if (!isset($_SERVER['argv'][1])) {
 // First we need to initalize the Consumer
 // We need to add one or more consumers.
 // In this case we use callbacks to consume the message.
-// BcMq also contains a consumer that can use services
+// BraincraftedMq also contains a consumer that can use services
 
-$consumer = new Bc\Mq\CallbackConsumer(array(
+$consumer = new Braincrafted\Mq\CallbackConsumer(array(
     // The key is the type of the consumer, the value must be a callback
     'default'   => function ($message) {
         // This consumer simply takes the message and appends it to a file called default.log

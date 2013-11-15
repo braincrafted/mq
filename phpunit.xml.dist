@@ -2,14 +2,14 @@
 
 <phpunit bootstrap="tests/bootstrap.php" colors="true">
     <testsuites>
-        <testsuite name="BcMq Test Suite">
-            <directory>tests/Bc/Mq/</directory>
+        <testsuite name="BraincraftedMq Test Suite">
+            <directory>tests/Braincrafted/Mq/</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory suffix=".php">src/Bc/Mq/</directory>
+            <directory suffix=".php">src/Braincrafted/Mq/</directory>
         </whitelist>
     </filter>
 </phpunit>

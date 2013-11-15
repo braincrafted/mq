@@ -1,39 +1,32 @@
 <?php
 /**
- * This file is part of BcMq.
+ * This file is part of BraincraftedMq.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Mq;
+namespace Braincrafted\Mq;
 
-use Bc\Json\Json;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
+use Braincrafted\Json\Json;
 
 /**
- * Consumes messags from the message queue and calls a callback.
+ * Consumes messags from the message queue and sends them to a service.
  *
- * Allows to handle different types of messages with different callbacks.
- *
- * Usage:
- *
- *     $consumer = new Bc\Mq\Consumer(array(
- *         'default'   => function ($message) {
- *             file_put_contents(__DIR__.'/default.log', $message."\n", FILE_APPEND);
- *         }
- *     ));
- *     $consumer->consume($_SERVER['argv'][1]);
- *
- * See `examples/consumer.php` for a full example.
- *
- * @package   BcMq
+ * @package   BraincraftedMq
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2013 Florian Eckerstorfer
  * @license   http://opensource.org/licenses/MIT The MIT License
  */
-class CallbackConsumer implements ConsumerInterface
+class ServiceConsumer implements ContainerAwareInterface, ConsumerInterface
 {
     /** @var array */
     private $consumers;
+
+    /** @var ContainerInterface */
+    private $container;
 
     /**
      * Constructor.
@@ -47,7 +40,21 @@ class CallbackConsumer implements ConsumerInterface
     }
 
     /**
-     * {@inheritDoc}
+     * Sets the service container.
+     *
+     * @param ContainerInterface $container The service container
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
+    /**
+     * Consumes the given message.
+     *
+     * @param string $data The message must be encoded as JSON and quotes can be escaped.
+     *
+     * @return void
      */
     public function consume($data)
     {
@@ -62,7 +69,7 @@ class CallbackConsumer implements ConsumerInterface
         }
 
         if (isset($this->consumers[$data['type']])) {
-            call_user_func($this->consumers[$data['type']], $data['message']);
+            $service = $this->container->get($this->consumers[$data['type']]);
+            call_user_func(array($service, 'consume'), $data['message']);
         }
-    }
-}
+    }}
