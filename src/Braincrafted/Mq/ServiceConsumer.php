@@ -72,4 +72,5 @@ class ServiceConsumer implements ContainerAwareInterface, ConsumerInterface
             $service = $this->container->get($this->consumers[$data['type']]);
             call_user_func(array($service, 'consume'), $data['message']);
         }
-    }}
+    }
+}
