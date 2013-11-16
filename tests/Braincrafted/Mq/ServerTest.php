@@ -55,7 +55,7 @@ class ServerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests the <code>handleData()</code> method.
+     * Tests the {@see handleData()} method.
      *
      * @covers Braincrafted\Mq\Server::handleData()
      */
@@ -80,5 +80,35 @@ class ServerTest extends \PHPUnit_Framework_TestCase
             ->once();
 
         $this->server->handleData('{"message":"foobar"}', 'php consumer.php', $connection);
+    }
+
+    /**
+     * @covers Braincrafted\Mq\Server::handleData()
+     */
+    public function testHandleDataCallback()
+    {
+        $process = m::mock('Braincrafted\BackgroundProcess\BackgroundProcess');
+        $process
+            ->shouldReceive('run')
+            ->withNoArgs()
+            ->once();
+
+        $this->processFactory
+            ->shouldReceive('newProcess')
+            ->with('php consumer.php "{\"message\":\"foobar\"}"')
+            ->once()
+            ->andReturn($process);
+
+        $connection = m::mock('React\Socket\ConnectionInterface');
+        $connection
+            ->shouldReceive('close')
+            ->withNoArgs()
+            ->once();
+
+        $callback = function () {
+            $this->assertTrue(true);
+        };
+
+        $this->server->handleData('{"message":"foobar"}', 'php consumer.php', $connection, $callback);
     }
 }
