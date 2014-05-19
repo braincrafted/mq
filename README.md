@@ -5,7 +5,7 @@ BcMq
 
 An asynchronous message queue implemented in PHP (mostly for fun and pleasure).
 
-By [Florian Eckerstorfer](http://florianeckerstorfer.com).
+By [Florian Eckerstorfer](https://florian.ec).
 
 
 Installation
@@ -13,11 +13,13 @@ Installation
 
 The recommended way of installing BcMq is through [Composer](http://getcomposer.org):
 
-    {
-        "require": {
-            "braincrafted/mq": "dev-master"
-        }
+```json
+{
+    "require": {
+        "braincrafted/mq": "dev-master"
     }
+}
+```
 
 
 Usage
@@ -36,6 +38,10 @@ There are examples for server, consumer and producer in the `examples` directory
 
 Changelog
 ---------
+
+### Version 0.4.1 (2014-05-19)
+
+- Fixed namespaces for `BackgroundProcess`
 
 ### Version 0.4 (2013-11-15)
 
@@ -77,7 +83,3 @@ License
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/braincrafted/mq/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
