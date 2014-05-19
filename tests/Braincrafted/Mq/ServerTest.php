@@ -22,7 +22,7 @@ class ServerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->processFactory   = m::mock('Braincrafted\BackgroundProcess\Factory');
+        $this->processFactory   = m::mock('Cocur\BackgroundProcess\Factory');
         $this->loop             = m::mock('React\EventLoop\LoopInterface');
         $this->socket           = m::mock('React\Socket\ServerInterface');
 
