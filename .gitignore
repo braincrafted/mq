@@ -1,9 +1,8 @@
-build/
-docs/code-coverage/
-vendor/
-examples/*.log
-phpunit.xml
-.tags
-.tags_sorted_by_file
-*.sublime-project
-*.sublime-workspace
+/build/
+/docs/code-coverage/
+/examples/*.log
+/vendor/
+/composer.lock
+/phpunit.xml
+/*.sublime-project
+/*.sublime-workspace

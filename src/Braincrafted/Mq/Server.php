@@ -13,7 +13,7 @@ use React\Socket\ConnectionInterface;
 use React\Socket\Server as SocketServer;
 use React\Socket\ServerInterface;
 
-use Braincrafted\BackgroundProcess\Factory as BackgroundProcessFactory;
+use Cocur\BackgroundProcess\Factory as BackgroundProcessFactory;
 
 /**
  * Message Queue Server
