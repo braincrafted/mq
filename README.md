@@ -39,6 +39,10 @@ There are examples for server, consumer and producer in the `examples` directory
 Changelog
 ---------
 
+### Version 0.4.2 (8 September 2014)
+
+- Updated version string for `react/socket`
+
 ### Version 0.4.1 (2014-05-19)
 
 - Fixed namespaces for `BackgroundProcess`
