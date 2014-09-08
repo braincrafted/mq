@@ -1,7 +1,7 @@
 {
     "name":         "braincrafted/mq",
     "require":      {
-        "react/socket":                     "0.3.*",
+        "react/socket":                     "~0.3",
         "braincrafted/background-process":  "~0.3",
         "braincrafted/json":                "~0.2"
     },
